@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Press Kit | Tide Forge Games</title>
+    <meta name="description" content="Official press kit for Tide Forge Games, featuring company information, brand assets, game press kits for Virtual Playmat and The Bent Protector, and press releases.">
+
+    <!-- Favicons and Web App Manifest for Android/General -->
+    <link rel="icon" href="/assets/favicons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Apple Specific Meta Tags and Icons -->
+    <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TideForge Games">
+    <link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/assets/splash_screens/iPhone_13_Pro_Max_portrait.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="/assets/splash_screens/iPhone_13_Pro_Max_landscape.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/assets/splash_screens/iPhone_SE_portrait.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Chakra Petch and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Custom CSS for fonts and backgrounds */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .font-chakra {
+            font-family: 'Chakra Petch', sans-serif;
+        }
+        .hero-bg-press {
+            background-image: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 1)), url('https://placehold.co/1920x1080/0a192f/06b6d4?text=Press+Kit&font=chakra');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .game-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .game-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
+            border-color: #06b6d4;
+        }
+        /* Angled sections for visual separation */
+        .angled-section {
+            position: relative;
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+            margin-top: -5%;
+            padding-top: 10%;
+            padding-bottom: 5%;
+        }
+        .angled-section-top-only {
+            position: relative;
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 100%);
+            margin-top: -5%;
+            padding-top: 10%;
+        }
+        /* Preloader styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a192f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #06b6d4;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f97316;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 rounded-b-lg shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-2xl md:text-3xl font-chakra font-bold text-white uppercase tracking-wider rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-label="TideForge Games Home">
+                <img src="/assets/images/TFG_Logo_512x512_Blue.png" alt="Tide Forge Games Icon" class="w-8 h-8 md:w-10 md:h-10 object-contain mr-2">
+                Tide<span class="text-orange-400">Forge</span> Games
+            </a>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8 font-chakra">
+                <a href="index.html#home" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Home</a>
+                <a href="index.html#games" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Games</a>
+                <a href="index.html#about" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">About</a>
+                <a href="index.html#community" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Community</a>
+                <a href="careers.html" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Careers</a>
+                <a href="press-kit.html" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-current="page">Press</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Open main menu" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden font-chakra bg-slate-900/90 rounded-b-lg shadow-inner">
+            <a href="index.html#home" class="block py-3 px-6 text-sm hover:bg-slate-800 rounded-b-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Home</a>
+            <a href="index.html#games" class="block py-3 px-6 text-sm hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Games</a>
+            <a href="index.html#about" class="block py-3 px-6 text-sm hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">About</a>
+            <a href="index.html#community" class="block py-3 px-6 text-sm hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Community</a>
+            <a href="careers.html" class="block py-3 px-6 text-sm hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Careers</a>
+            <a href="press-kit.html" class="block py-3 px-6 text-sm hover:bg-slate-800 rounded-b-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-current="page">Press Kit</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Press Hero Section -->
+        <section id="press-hero" class="hero-bg-press min-h-[50vh] flex items-center py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-chakra font-bold text-white uppercase tracking-wider leading-tight mb-4 drop-shadow-lg">Press & Media Kit</h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 opacity-90">Your go-to resource for all things Tide Forge Games. Find assets, information, and contacts for media inquiries.</p>
+                <a href="#company-info" class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-orange-400/50 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900">Explore Kit</a>
+            </div>
+        </section>
+
+        <!-- Company Information Section -->
+        <section id="company-info" class="py-20 bg-slate-900 angled-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-center text-white uppercase tracking-wider mb-12 drop-shadow-md">Company Information</h2>
+
+                <div class="max-w-4xl mx-auto bg-slate-800 rounded-xl shadow-xl p-8 mb-12">
+                    <h3 class="text-2xl font-chakra font-bold text-cyan-400 mb-4">Boilerplate</h3>
+                    <p class="text-gray-300 mb-4">
+                        Tide Forge Games is an independent game development studio dedicated to crafting immersive worlds and shaping captivating stories. Founded in 2025, our mission is to blend boundless imagination with meticulous craftsmanship, creating robust, beautiful, and deeply engaging interactive experiences that challenge the mind and capture the heart. We believe in the power of community-driven development and strive to build games that foster connection and creativity.
+                    </p>
+                    <p class="text-300">
+                        Based in Fort Atkinson, WI, USA, Tide Forge Games is committed to pushing the boundaries of interactive entertainment, one forged world at a time.
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-slate-800 rounded-xl shadow-xl p-8">
+                    <h3 class="text-2xl font-chakra font-bold text-cyan-400 mb-4">Fact Sheet</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
+                        <div><strong class="text-white">Studio Name:</strong> Tide Forge Games</div>
+                        <div><strong class="text-white">Founded:</strong> 2025</div>
+                        <div><strong class="text-white">Headquarters:</strong> Fort Atkinson, WI, USA</div>
+                        <div><strong class="text-white">Website:</strong> <a href="https://www.tideforgegames.com" class="text-cyan-400 hover:underline">tideforgegames.com</a></div>
+                        <div><strong class="text-white">Contact:</strong> <a href="mailto:press@tideforgegames.com" class="text-cyan-400 hover:underline">press@tideforgegames.com</a></div>
+                        <div><strong class="text-white">Social Media:</strong> <a href="https://x.com/tideforgegames" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">Twitter</a>, <a href="#" class="text-cyan-400 hover:underline">Discord</a>, <a href="#" class="text-cyan-400 hover:underline">YouTube</a>, <a href="#" class="text-cyan-400 hover:underline">LinkedIn</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Assets Section -->
+        <section id="brand-assets" class="py-20 bg-slate-800/80 angled-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-center text-white uppercase tracking-wider mb-12 drop-shadow-md">Brand Assets</h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto text-center mb-8">
+                    Download our official logos and brand elements for media use. Please adhere to our usage guidelines.
+                </p>
+
+                <div class="bg-slate-800 rounded-xl shadow-xl p-8 mb-12">
+                    <h3 class="text-2xl font-chakra font-bold text-orange-400 mb-4">Logos</h3>
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+                        <div class="flex flex-col items-center p-4 bg-slate-700 rounded-lg shadow-inner">
+                            <img src="/assets/images/TFG_Logo_512x512_White.png" alt="Tide Forge Games Logo - White" class="w-64 h-32 object-contain mb-4">
+                            <p class="text-gray-400 text-sm mb-3">Primary Logo (White)</p>
+                            <a href="/assets/images/TFG_Logo_512x512_White.png" download="TFG_Logo_White.png" class="text-cyan-400 hover:underline"><i class="fas fa-download mr-2"></i> Download PNG</a>
+                        </div>
+                        <div class="flex flex-col items-center p-4 bg-slate-700 rounded-lg shadow-inner">
+                            <img src="/assets/images/TFG_Logo_512x512_Black.png" alt="Tide Forge Games Logo - Dark" class="w-64 h-32 object-contain mb-4">
+                            <p class="text-gray-400 text-sm mb-3">Primary Logo (Dark)</p>
+                            <a href="/assets/images/TFG_Logo_512x512_Black.png" download="TFG_Logo_Black.png" class="text-cyan-400 hover:underline"><i class="fas fa-download mr-2"></i> Download PNG</a>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="#" class="inline-block bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-cyan-400/50 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-800">
+                            <i class="fas fa-box-open mr-2"></i> Download All Brand Assets (ZIP)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 rounded-xl shadow-xl p-8">
+                    <h3 class="text-2xl font-chakra font-bold text-orange-400 mb-4">Usage Guidelines</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Do not alter, distort, or modify the logos in any way.</li>
+                        <li>Maintain clear space around the logos.</li>
+                        <li>Do not use outdated versions of our logos.</li>
+                        <li>For specific color codes or further guidelines, please contact us.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Press Kits Section -->
+        <section id="game-press-kits" class="py-20 bg-slate-900 angled-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-center text-white uppercase tracking-wider mb-12 drop-shadow-md">Game Press Kits</h2>
+
+                <!-- Virtual Playmat Press Kit -->
+                <div class="bg-slate-800 rounded-xl shadow-xl p-8 mb-12">
+                    <div class="flex flex-col md:flex-row items-center mb-6">
+                        <img src="https://placehold.co/150x150/1e293b/0ea5e9?text=VP+Icon&font=chakra" alt="Virtual Playmat Game Icon" class="w-24 h-24 md:w-32 md:h-32 rounded-lg object-cover mr-6 mb-4 md:mb-0">
+                        <div>
+                            <h3 class="text-3xl font-chakra font-bold text-cyan-400 mb-2">Virtual Playmat</h3>
+                            <p class="text-gray-400">Bridge the gap between physical and digital play.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Virtual Playmat is a revolutionary platform designed to seamlessly integrate physical and virtual components for any board game, card game, or RPG. It allows players to connect globally, using webcams for physical cards or fully virtual assets within the same session, fostering a truly hybrid tabletop experience.
+                    </p>
+
+                    <h4 class="text-xl font-chakra font-bold text-white mb-3">Fact Sheet</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-300 mb-6">
+                        <div><strong class="text-white">Developer:</strong> Tide Forge Games</div>
+                        <div><strong class="text-white">Publisher:</strong> Tide Forge Games</div>
+                        <div><strong class="text-white">Platforms:</strong> PC (Steam), Mac</div>
+                        <div><strong class="text-white">Release Date:</strong> Q4 2025 (Planned)</div>
+                        <div><strong class="text-white">Price:</strong> TBD</div>
+                        <div><strong class="text-white">Website:</strong> <a href="https://www.tideforgegames.com/virtual-playmat" class="text-cyan-400 hover:underline">tideforgegames.com/virtual-playmat</a></div>
+                    </div>
+
+                    <h4 class="text-xl font-chakra font-bold text-white mb-3">Key Features</h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-300 mb-6">
+                        <li>Unique Hybrid Play: Combine physical and virtual assets seamlessly.</li>
+                        <li>Direct P2P Connection: High-quality video & audio for real-time interaction.</li>
+                        <li>Community Driven: Full Steam Workshop integration for custom content.</li>
+                        <li>Intuitive Interface: Easy to learn, powerful tools for game masters and players.</li>
+                    </ul>
+
+                    <div class="flex flex-col md:flex-row gap-4 justify-center mt-8">
+                        <a href="#" class="inline-block bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-cyan-400/50 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-800">
+                            <i class="fas fa-images mr-2"></i> Download Screenshots
+                        </a>
+                        <a href="#" class="inline-block bg-transparent border-2 border-cyan-400 text-cyan-400 font-bold py-3 px-8 rounded-lg shadow-lg transition-all hover:bg-cyan-400 hover:text-white hover:shadow-cyan-400/30 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-800">
+                            <i class="fas fa-play-circle mr-2"></i> Watch Trailer
+                        </a>
+                        <a href="#" class="inline-block bg-transparent border-2 border-cyan-400 text-cyan-400 font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-cyan-400/30 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-800">
+                            <i class="fas fa-file-alt mr-2"></i> Download Fact Sheet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Press Releases Section -->
+        <section id="press-releases" class="py-20 bg-slate-800/80 angled-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-center text-white uppercase tracking-wider mb-12 drop-shadow-md">Press Releases</h2>
+                <div class="max-w-3xl mx-auto space-y-8">
+                    <div class="bg-slate-800 rounded-xl shadow-xl p-6">
+                        <h3 class="text-xl font-chakra font-bold text-cyan-400 mb-2">Tide Forge Games Officially Launches as Independent Studio</h3>
+                        <p class="text-gray-500 text-sm mb-3">March 1, 2025</p>
+                        <p class="text-gray-300 mb-4">
+                            A new force enters the indie game development scene! Tide Forge Games today announced its official launch, promising innovative and immersive gaming experiences.
+                        </p>
+                        <a href="/press-release-launch.html" class="text-orange-400 hover:underline font-bold">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Personnel Section (Optional but good for studio identity) -->
+        <section id="key-personnel" class="py-20 bg-slate-900 angled-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-center text-white uppercase tracking-wider mb-12 drop-shadow-md">Our Team</h2>
+                <div class="grid grid-cols-1 justify-items-center gap-10">
+                    <div class="bg-slate-800 rounded-xl shadow-xl p-6 text-center max-w-sm">
+                        <img src="https://placehold.co/120x120/1e293b/06b6d4?text=JP&font=chakra" alt="Profile picture of Jason Poeppel" class="rounded-full w-24 h-24 mx-auto mb-4 object-cover">
+                        <h3 class="text-xl font-chakra font-bold text-white mb-1">Jason Poeppel</h3>
+                        <p class="text-cyan-400 mb-3">Founder</p>
+                        <p class="text-gray-300 text-sm">
+                            Jason is the visionary and driving force behind Tide Forge Games, dedicated to crafting unique and engaging interactive experiences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Press Contact Section -->
+        <section id="press-contact" class="py-20 bg-slate-900 angled-section">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-white mb-6 uppercase tracking-wider drop-shadow-md">Press Contact</h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                    For all media inquiries, interview requests, or further information, please contact our press team.
+                </p>
+                <a href="mailto:press@tideforgegames.com" class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-orange-400/50 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+                    <i class="fas fa-envelope mr-2"></i> Email Our Press Team
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-900/50 border-t border-slate-800 py-8 rounded-t-lg">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p class="font-chakra text-lg mb-2 text-gray-300">Forging Worlds, Shaping Stories</p>
+            <p class="mb-4">For inquiries, contact us at <a href="mailto:contact@tideforgegames.com" class="text-cyan-400 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">contact@tideforgegames.com</a></p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-label="Join our Discord server"><i class="fab fa-discord"></i> Discord</a>
+                <a href="https://x.com/tideforgegames" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-label="Watch us on YouTube"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="#" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-label="Connect with us on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="press-kit.html" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-current="page">Press</a>
+            </div>
+            <!-- Added legal links here -->
+            <div class="flex justify-center space-x-4 text-sm mt-4">
+                <a href="/privacy-policy.html" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Privacy Policy</a>
+                <a href="/terms-of-service.html" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Terms of Service</a>
+            </div>
+            <p class="font-chakra text-sm mt-2">&copy; 2025 Tide Forge Games. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+        const desktopMenuLinks = document.querySelectorAll('nav .hidden.md\\:flex a'); // Select desktop links
+
+        // Toggle mobile menu visibility and aria-expanded attribute
+        mobileMenuButton.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', !isHidden);
+        });
+
+        // Close mobile menu when a link is clicked
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                // Check if the link is an internal anchor link
+                if (link.getAttribute('href').startsWith('#')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                } else if (link.getAttribute('href').endsWith('.html')) {
+                    // For external HTML pages, just close the menu
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Add aria-current to active navigation link based on current page
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop(); // Get just the filename
+            const allNavLinks = document.querySelectorAll('nav a, #mobile-menu a');
+
+            allNavLinks.forEach(link => {
+                link.removeAttribute('aria-current');
+                const linkHref = link.getAttribute('href');
+
+                // Handle links to index.html with hashes
+                if (linkHref.startsWith('index.html#') && currentPath === 'index.html') {
+                    // This logic is for the main page's active section, not for the press-kit page
+                    // We'll keep it simple for multi-page navigation for now.
+                }
+                // Handle direct page links (like press-kit.html, careers.html)
+                else if (linkHref === currentPath) {
+                    link.setAttribute('aria-current', 'page');
+                }
+                // Special handling for 'Press' link on press-kit.html
+                else if (linkHref === 'press-kit.html' && currentPath === 'press-kit.html') {
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+        });
+
+
+        // Smooth scrolling for internal links (within this page)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Image loading spinners and fallbacks
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                const spinnerDiv = document.createElement('div');
+                spinnerDiv.className = 'absolute spinner-small';
+                spinnerDiv.id = `spinner-${img.alt.replace(/\s+/g, '-')}`; // Create a unique ID from alt text
+
+                // Insert spinner before the image
+                img.parentNode.insertBefore(spinnerDiv, img);
+
+                img.onload = () => {
+                    img.style.opacity = '1';
+                    spinnerDiv.style.display = 'none';
+                };
+                img.onerror = () => {
+                    // Fallback to a generic placeholder with error text
+                    img.src = img.src.includes('Virtual+Playmat') ?
+                              'https://placehold.co/600x400/1e293b/0ea5e9?text=Image+Load+Error&font=chakra' :
+                              'https://placehold.co/600x400/1e293b/f97316?text=Image+Load+Error&font=chakra';
+                    img.style.opacity = '1';
+                    spinnerDiv.style.display = 'none';
+                };
+            });
+        });
+
+        // Preloader functionality
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500); // Match transition duration
+            }
+        });
+
+        // Back to Top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after scrolling down 300px
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Newsletter subscription thank you message (not directly on this page, but keeping for consistency)
+        function showThankYouMessage() {
+            const thankYouMessage = document.getElementById('thank-you-message');
+            if (thankYouMessage) { // Check if element exists on current page
+                thankYouMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    thankYouMessage.classList.add('hidden');
+                }, 5000); // Hide after 5 seconds
+            }
+        }
+    </script>
+</body>
+</html>

@@ -3,103 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Tide Forge Games | Independent Game Development Studio</title>
     <meta name="description" content="Tide Forge Games is an independent studio forging immersive worlds and shaping captivating stories. Explore our games, including Virtual Playmat and The Bent Protector.">
-    
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="icon" href="/favicon.ico" sizes="any">
 
+    <!-- Favicons and Web App Manifest for Android/General -->
+    <link rel="icon" href="/assets/favicons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Apple Specific Meta Tags and Icons -->
+    <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png"> <!-- 180x180px for most modern iOS devices -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- or 'default' or 'black' -->
+    <meta name="apple-mobile-web-app-title" content="TideForge Games"> <!-- This is the title that appears under the icon -->
+
+    <!-- Apple Splash Screens (Highly Recommended for a native feel) -->
+    <!-- You will need to generate these images at various resolutions for different devices. -->
+    <!-- Example for iPhone 13 Pro Max / iPhone 12 Pro Max -->
+    <link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/assets/splash_screens/iPhone_13_Pro_Max_portrait.png">
+    <link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="/assets/splash_screens/iPhone_13_Pro_Max_landscape.png">
+    <!-- Example for iPhone SE (3rd Gen) -->
+    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/assets/splash_screens/iPhone_SE_portrait.png">
+    <!-- ... add more for other devices like iPads, older iPhones, etc. -->
+    <!-- A comprehensive list of sizes can be found on tools like realfavicongenerator.net -->
+
+    <!-- Desktop PNG Favicon (for specific desktop browsers/features) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Chakra Petch and Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0a192f; }
-        .font-chakra { font-family: 'Chakra Petch', sans-serif; }
-        .hero-bg { background-image: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 1)), url('https://placehold.co/1920x1080/0a192f/06b6d4?text=TFG&font=chakra'); background-size: cover; background-position: center; }
-        .game-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid transparent; }
-        .game-card:hover { transform: translateY(-12px); box-shadow: 0 0 30px rgba(6, 182, 212, 0.4); border-color: #06b6d4; }
-        .angled-section { position: relative; clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%); margin-top: -5%; padding-top: 10%; padding-bottom: 5%; }
-        .angled-section-top-only { position: relative; clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 100%); margin-top: -5%; padding-top: 10%; }
+        /* Custom CSS for fonts and backgrounds */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .font-chakra {
+            font-family: 'Chakra Petch', sans-serif;
+        }
+        .hero-bg {
+            /* Fallback image if the placeholder fails or for better initial load */
+            background-image: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 1)), url('https://placehold.co/1920x1080/0a192f/06b6d4?text=TFG&font=chakra');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .game-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .game-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
+            border-color: #06b6d4;
+        }
+        /* Angled sections for visual separation */
+        .angled-section {
+            position: relative;
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+            margin-top: -5%;
+            padding-top: 10%;
+            padding-bottom: 5%;
+        }
+        .angled-section-top-only {
+            position: relative;
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 100%);
+            margin-top: -5%;
+            padding-top: 10%;
+        }
+        /* Preloader styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a192f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #06b6d4;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f97316;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-5px);
+        }
     </style>
 </head>
 <body class="text-gray-200">
 
-    <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 rounded-b-lg shadow-lg">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl md:text-3xl font-chakra font-bold text-white uppercase tracking-wider">
+            <a href="index.html" class="flex items-center text-2xl md:text-3xl font-chakra font-bold text-white uppercase tracking-wider rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-label="TideForge Games Home">
+                <img src="/assets/images/TFG_Logo_512x512_Blue.png" alt="Tide Forge Games Icon" class="w-8 h-8 md:w-10 md:h-10 object-contain mr-2">
                 Tide<span class="text-orange-400">Forge</span> Games
             </a>
+            <!-- Desktop Navigation -->
             <div class="hidden md:flex space-x-8 font-chakra">
-                <a href="#home" class="hover:text-cyan-400 transition-colors">Home</a>
-                <a href="#games" class="hover:text-cyan-400 transition-colors">Games</a>
-                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
-                <a href="#community" class="hover:text-cyan-400 transition-colors">Community</a>
-                <a href="careers.html" class="hover:text-cyan-400 transition-colors">Careers</a>
+                <a href="#home" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-current="page">Home</a>
+                <a href="#games" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Games</a>
+                <a href="#about" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">About</a>
+                <a href="#community" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Community</a>
+                <a href="careers.html" class="hover:text-cyan-400 transition-colors py-2 px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Careers</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-white" aria-label="Open main menu">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400" aria-label="Open main menu" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden font-chakra">
-            <a href="#home" class="block py-2 px-6 text-sm hover:bg-slate-800">Home</a>
-            <a href="#games" class="block py-2 px-6 text-sm hover:bg-slate-800">Games</a>
-            <a href="#about" class="block py-2 px-6 text-sm hover:bg-slate-800">About</a>
-            <a href="#community" class="block py-2 px-6 text-sm hover:bg-slate-800">Community</a>
-            <a href="careers.html" class="block py-2 px-6 text-sm hover:bg-slate-800">Careers</a>
-            <a href="#press" class="block py-2 px-6 text-sm hover:bg-slate-800">Press Kit</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden font-chakra bg-slate-900/90 rounded-b-lg shadow-inner">
+            <a href="#home" class="block py-3 px-6 text-sm hover:bg-slate-800 rounded-b-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-current="page">Home</a>
+            <a href="#games" class="block py-3 px-6 text-sm hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Games</a>
+            <a href="#about" class="block py-3 px-6 text-sm hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">About</a>
+            <a href="#community" class="block py-3 px-6 text-sm hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Community</a>
+            <a href="careers.html" class="block py-3 px-6 text-sm hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Careers</a>
+            <a href="press-kit.html" class="block py-3 px-6 text-sm hover:bg-slate-800 rounded-b-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Press Kit</a>
         </div>
     </header>
 
     <main>
-        <section id="home" class="hero-bg min-h-screen flex items-center">
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg min-h-screen flex items-center py-20">
             <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-chakra font-bold text-white uppercase tracking-wider leading-tight mb-4">Forging Worlds, Shaping Stories</h1>
-                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">We craft immersive experiences that challenge the mind and capture the heart. Welcome to our forge.</p>
-                <a href="#games" class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-orange-400/50">Explore Our Games</a>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-chakra font-bold text-white uppercase tracking-wider leading-tight mb-4 drop-shadow-lg">Forging Worlds, Shaping Stories</h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 opacity-90">We craft immersive experiences that challenge the mind and capture the heart. Welcome to our forge.</p>
+                <a href="#games" class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-orange-400/50 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900">Explore Our Games</a>
             </div>
         </section>
 
+        <!-- Games Section -->
         <section id="games" class="py-20 bg-slate-900 angled-section">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-center text-white uppercase tracking-wider mb-12">Our Creations</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
-                    <div class="game-card bg-slate-800 rounded-lg overflow-hidden shadow-xl flex flex-col">
-                        <img src="https://placehold.co/600x400/1e293b/0ea5e9?text=Virtual+Playmat&font=chakra" alt="Promotional image for Virtual Playmat" class="w-full h-64 object-cover" loading="lazy">
+                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-center text-white uppercase tracking-wider mb-12 drop-shadow-md">Our Creations</h2>
+                <!-- Changed from grid to flex for centering a single item -->
+                <div class="flex justify-center gap-10 lg:gap-16">
+                    <!-- Virtual Playmat Game Card -->
+                    <div class="game-card bg-slate-800 rounded-xl overflow-hidden shadow-xl flex flex-col max-w-xl">
+                        <!-- Image with loading spinner and error fallback -->
+                        <div class="relative w-full h-64 bg-slate-700 flex items-center justify-center">
+                            <div class="absolute spinner-small" id="spinner-vp"></div>
+                            <img src="https://placehold.co/600x400/1e293b/0ea5e9?text=Virtual+Playmat&font=chakra" alt="Promotional image for Virtual Playmat" class="w-full h-full object-cover rounded-t-xl opacity-0 transition-opacity duration-500" loading="lazy"
+                                onload="this.style.opacity=1; document.getElementById('spinner-vp').style.display='none';"
+                                onerror="this.src='https://placehold.co/600x400/1e293b/0ea5e9?text=Image+Load+Error&font=chakra'; this.style.opacity=1; document.getElementById('spinner-vp').style.display='none';">
+                        </div>
                         <div class="p-8 flex flex-col flex-grow">
                             <h3 class="text-3xl font-chakra font-bold text-white mb-3 uppercase">Virtual Playmat</h3>
                             <p class="text-gray-400 mb-6 flex-grow">
                                 Bridge the gap between physical and digital play. This revolutionary platform lets you enjoy any board game, card game, or RPG your way. Seamlessly connect with friends whether they're using physical cards via webcam or fully virtual components—all in the same session!
                             </p>
                             <h4 class="text-lg font-bold text-cyan-400 mb-3 font-chakra">Key Features:</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>Unique Hybrid Play: Combine physical and virtual assets.</li>
-                                <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>Direct P2P Connection: High-quality video & audio.</li>
-                                <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>Community Driven: Full Steam Workshop integration.</li>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center"><i class="fas fa-sync-alt w-5 h-5 mr-3 text-cyan-400"></i>Unique Hybrid Play: Combine physical and virtual assets.</li>
+                                <li class="flex items-center"><i class="fas fa-users w-5 h-5 mr-3 text-cyan-400"></i>Direct P2P Connection: High-quality video & audio.</li>
+                                <li class="flex items-center"><i class="fas fa-cogs w-5 h-5 mr-3 text-cyan-400"></i>Community Driven: Full Steam Workshop integration.</li>
                             </ul>
                             <div class="mt-8 text-center">
-                                <button class="w-full inline-block bg-transparent border-2 border-cyan-400 text-cyan-400 font-bold py-3 px-8 rounded-lg shadow-lg transition-all hover:bg-cyan-400 hover:text-white hover:shadow-cyan-400/30">Coming Soon</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="game-card bg-slate-800 rounded-lg overflow-hidden shadow-xl flex flex-col">
-                        <img src="https://placehold.co/600x400/1e293b/f97316?text=The+Bent+Protector&font=chakra" alt="Promotional image for The Bent Protector" class="w-full h-64 object-cover" loading="lazy">
-                        <div class="p-8 flex flex-col flex-grow">
-                            <h3 class="text-3xl font-chakra font-bold text-white mb-3 uppercase">The Bent Protector</h3>
-                            <p class="text-gray-400 mb-6 flex-grow">
-                                In the vast Stationery Realm, peace has been shattered by the tyrannical Lord Binder. When the legendary Golden Stapler is stolen, a humble paperclip is bent into the shape of a hero. As Sir Clip, you must battle monstrous office supplies, restore the artifact, and free your world from the iron grip of a three-ring tyrant.
-                            </p>
-                            <h4 class="text-lg font-bold text-orange-400 mb-3 font-chakra">Key Features:</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Creative Physics-Based Combat</li>
-                                <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>Charming and Interactive World</li>
-                                <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>Unlockable Abilities & Power-ups</li>
-                            </ul>
-                            <div class="mt-8 text-center">
-                                <button class="w-full inline-block bg-transparent border-2 border-orange-400 text-orange-400 font-bold py-3 px-8 rounded-lg shadow-lg transition-all hover:bg-orange-400 hover:text-white hover:shadow-orange-400/30">In Development</button>
+                                <button class="w-full inline-block bg-transparent border-2 border-cyan-400 text-cyan-400 font-bold py-3 px-8 rounded-lg shadow-lg transition-all hover:bg-cyan-400 hover:text-white hover:shadow-cyan-400/30 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-800" disabled>Coming Soon</button>
                             </div>
                         </div>
                     </div>
@@ -107,10 +215,11 @@
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="py-20 bg-slate-800/80 angled-section">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl md:text-5xl font-chakra font-bold text-white mb-6 uppercase tracking-wider">Our Philosophy</h2>
+                    <h2 class="text-3xl md:text-5xl font-chakra font-bold text-white mb-6 uppercase tracking-wider drop-shadow-md">Our Philosophy</h2>
                     <p class="text-lg text-gray-300 mb-4">
                         Like a blacksmith at the ocean's edge, we believe in the power of combining elemental forces. We unite the boundless <span class="text-cyan-400 font-bold">Tide</span> of imagination with the meticulous craftsmanship of the <span class="text-orange-400 font-bold">Forge</span>.
                     </p>
@@ -120,60 +229,193 @@
                 </div>
             </div>
         </section>
-        
+
+        <!-- Community Section -->
         <section id="community" class="py-20 bg-slate-900 angled-section">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-white mb-6 uppercase tracking-wider">Join The Community</h2>
+                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-white mb-6 uppercase tracking-wider drop-shadow-md">Join The Community</h2>
                 <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-10">
                     Our games are forged with community in mind. Follow our journey, get behind-the-scenes updates, and chat with the devs and other players. Your feedback helps shape our worlds!
                 </p>
                 <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
-                    <a href="#" class="text-lg w-full md:w-auto inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-orange-400/50">Join our Discord Server</a>
-                    <a href="https://x.com/tideforgegames" target="_blank" rel="noopener noreferrer" class="text-lg w-full md:w-auto inline-block bg-transparent border-2 border-cyan-400 text-cyan-400 font-bold py-3 px-8 rounded-lg shadow-lg transition-all hover:bg-cyan-400 hover:text-white hover:shadow-cyan-400/30">Follow on Twitter</a>
+                    <a href="#" class="text-lg w-full md:w-auto inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-orange-400/50 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+                        <i class="fab fa-discord mr-2"></i> Join our Discord Server
+                    </a>
+                    <a href="https://x.com/tideforgegames" target="_blank" rel="noopener noreferrer" class="text-lg w-full md:w-auto inline-block bg-transparent border-2 border-cyan-400 text-cyan-400 font-bold py-3 px-8 rounded-lg shadow-lg transition-all hover:bg-cyan-400 hover:text-white hover:shadow-cyan-400/30 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+                        <i class="fab fa-twitter mr-2"></i> Follow on Twitter
+                    </a>
                 </div>
                 <div class="max-w-xl mx-auto">
                     <p class="text-gray-400 mb-4">Sign up for our newsletter to get major announcements and launch day notifications!</p>
-                    <form class="flex flex-col md:flex-row gap-4">
-                        <input type="email" placeholder="your.email@example.com" class="w-full bg-slate-800 border-2 border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
-                        <button type="submit" class="w-full md:w-auto flex-shrink-0 inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-orange-400/50">Subscribe</button>
+                    <form class="flex flex-col md:flex-row gap-4" onsubmit="event.preventDefault(); showThankYouMessage();">
+                        <input type="email" placeholder="your.email@example.com" class="w-full bg-slate-800 border-2 border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" required>
+                        <button type="submit" class="w-full md:w-auto flex-shrink-0 inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-orange-400/50 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-900">Subscribe</button>
                     </form>
+                    <div id="thank-you-message" class="mt-4 text-green-400 hidden">
+                        Thank you for subscribing! We'll keep you updated.
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="press" class="py-20 bg-slate-800/80 angled-section-top-only">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-5xl font-chakra font-bold text-white mb-6 uppercase tracking-wider">Press & Media</h2>
-                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-                    Are you a member of the press, a streamer, or a content creator? You can find logos, screenshots, key art, and other assets for Tide Forge Games and our projects in our press kit.
-                </p>
-                <a href="#" class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-orange-400/50">Download Press Kit</a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-slate-900/50 border-t border-slate-800 py-8">
+    <!-- Footer Section -->
+    <footer class="bg-slate-900/50 border-t border-slate-800 py-8 rounded-t-lg">
         <div class="container mx-auto px-6 text-center text-gray-500">
             <p class="font-chakra text-lg mb-2 text-gray-300">Forging Worlds, Shaping Stories</p>
-            <p class="mb-4">For inquiries, contact us at <a href="mailto:contact@tideforgegames.com" class="text-cyan-400 hover:underline">contact@tideforgegames.com</a></p>
+            <p class="mb-4">For inquiries, contact us at <a href="mailto:contact@tideforgegames.com" class="text-cyan-400 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">contact@tideforgegames.com</a></p>
             <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" class="hover:text-cyan-400" aria-label="Join our Discord server">Discord</a>
-                <a href="https://x.com/tideforgegames" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400" aria-label="Follow us on Twitter">Twitter</a>
-                <a href="#" class="hover:text-cyan-400" aria-label="Watch us on YouTube">YouTube</a>
-                <a href="#" class="hover:text-cyan-400" aria-label="Connect with us on LinkedIn">LinkedIn</a>
-                <a href="#press" class="hover:text-cyan-400">Press</a>
+                <a href="#" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-label="Join our Discord server"><i class="fab fa-discord"></i> Discord</a>
+                <a href="https://x.com/tideforgegames" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-label="Watch us on YouTube"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="#" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900" aria-label="Connect with us on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="press-kit.html" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Press</a>
             </div>
-            <p class="font-chakra text-sm">&copy; 2025 Tide Forge Games. All Rights Reserved.</p>
+            <!-- Added legal links here -->
+            <div class="flex justify-center space-x-4 text-sm mt-4">
+                <a href="/privacy-policy.html" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Privacy Policy</a>
+                <a href="/terms-of-service.html" class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900">Terms of Service</a>
+            </div>
+            <p class="font-chakra text-sm mt-2">&copy; 2025 Tide Forge Games. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         // JavaScript for mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a, nav a');
-        for (let link of mobileMenuLinks) { link.addEventListener('click', () => { if (link.getAttribute('href').startsWith('#')) { mobileMenu.classList.add('hidden'); } }); }
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+        const desktopMenuLinks = document.querySelectorAll('nav .hidden.md\\:flex a'); // Select desktop links
+
+        // Toggle mobile menu visibility and aria-expanded attribute
+        mobileMenuButton.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', !isHidden);
+        });
+
+        // Close mobile menu when a link is clicked
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                // Only close if it's an internal hash link
+                if (link.getAttribute('href').startsWith('#') || link.getAttribute('href').endsWith('.html')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Add aria-current to active navigation link based on scroll position
+        const sections = document.querySelectorAll('main section');
+        const navLinks = document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"]');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3 // Adjust threshold as needed
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentSectionId = entry.target.id;
+                    navLinks.forEach(link => {
+                        link.removeAttribute('aria-current');
+                        if (link.getAttribute('href') === `#${currentSectionId}`) {
+                            link.setAttribute('aria-current', 'page');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Image loading spinners and fallbacks
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                const spinnerDiv = document.createElement('div');
+                spinnerDiv.className = 'absolute spinner-small';
+                spinnerDiv.id = `spinner-${img.alt.replace(/\s+/g, '-')}`; // Create a unique ID from alt text
+
+                // Insert spinner before the image
+                img.parentNode.insertBefore(spinnerDiv, img);
+
+                img.onload = () => {
+                    img.style.opacity = '1';
+                    spinnerDiv.style.display = 'none';
+                };
+                img.onerror = () => {
+                    // Fallback to a generic placeholder with error text
+                    img.src = img.src.includes('Virtual+Playmat') ?
+                              'https://placehold.co/600x400/1e293b/0ea5e9?text=Image+Load+Error&font=chakra' :
+                              'https://placehold.co/600x400/1e293b/f97316?text=Image+Load+Error&font=chakra';
+                    img.style.opacity = '1';
+                    spinnerDiv.style.display = 'none';
+                };
+            });
+        });
+
+        // Preloader functionality
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500); // Match transition duration
+            }
+        });
+
+        // Back to Top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after scrolling down 300px
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Newsletter subscription thank you message (not directly on this page, but keeping for consistency)
+        function showThankYouMessage() {
+            const thankYouMessage = document.getElementById('thank-you-message');
+            if (thankYouMessage) { // Check if element exists on current page
+                thankYouMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    thankYouMessage.classList.add('hidden');
+                }, 5000); // Hide after 5 seconds
+            }
+        }
     </script>
 </body>
 </html>
